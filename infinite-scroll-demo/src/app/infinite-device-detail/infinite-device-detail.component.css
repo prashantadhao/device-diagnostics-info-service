@@ -1,0 +1,20 @@
+thead {
+    color: rgb(97, 255, 97);
+    background-color: gray;  
+}
+
+.round-black-pagination /deep/ .ngx-pagination .current {
+    background:black;
+    display: inline-block;
+    border-radius: 50px;
+}
+
+.square-green-pagination /deep/ .ngx-pagination .current {
+    background:rgb(97, 255, 97);
+    display: inline-block;
+}
+
+.top-buffer { margin-top:20px; }
+.search-results {
+    height: 100%;
+}

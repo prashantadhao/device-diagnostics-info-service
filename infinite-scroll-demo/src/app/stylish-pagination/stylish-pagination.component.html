@@ -1,0 +1,21 @@
+<div class="container">
+  <nav aria-label="Page navigation example" *ngIf="maxPages > 1">
+    <ul class="pagination">
+      <li class="page-item step-position" [class.disabled]="current == 1">
+        <a class="page-link" href="#" (click)="setPage(current-1 ,itemsPerPage)"><b>Prev</b></a>
+      </li>
+      <li class="page-item" *ngFor="let page of pages;" [class.active]="page == current">
+        <div>
+          <div class="page-link" href="#" (click)="setPage(page, itemsPerPage)">
+            {{ page }}</div>
+          <div class="step-position">
+            STEP
+            {{page}}</div>
+        </div>
+      </li>
+      <li class="page-item" [class.disabled]="current == maxPages">
+        <a class="page-link" href="#" (click)="setPage(current+1 ,itemsPerPage)"><b>Next</b></a>
+      </li>
+    </ul>
+  </nav>
+</div>

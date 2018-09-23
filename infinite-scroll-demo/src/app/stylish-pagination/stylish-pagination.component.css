@@ -1,0 +1,17 @@
+.btn-space {
+    margin-right: 15px;
+}
+
+.page-link{
+    background-color: black;
+    color: white;
+    height: 50px;
+    width: 50px;   
+    text-orientation: inherit;
+    text-align: center;
+    border-radius: 50%;
+}
+.step-position{
+    margin-right: 8px;
+    margin-left: 8px;
+}

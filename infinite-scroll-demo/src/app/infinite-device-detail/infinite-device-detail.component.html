@@ -1,0 +1,22 @@
+<div class="search-results" infiniteScroll [infiniteScrollDistance]="2" [infiniteScrollThrottle]="500" (scrolled)="onScroll()">
+  <div class="container" *ngIf="devices.length>0">
+    <div class="row">
+      <table class="table table-dark table-hover table-striped">
+        <thead>
+          <tr>
+            <th>Device Id</th>
+            <th>Timestamp</th>
+            <th>Moisture</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let device of devices | paginate: { itemsPerPage: itemsPerPage, currentPage: p }">
+            <td> {{device.deviceId}} </td>
+            <td> {{device.timestamp}} </td>
+            <td> {{device.moisture}} </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

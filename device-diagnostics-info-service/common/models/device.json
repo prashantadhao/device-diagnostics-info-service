@@ -1,0 +1,37 @@
+{
+  "name": "Device",
+  "plural": "devices",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "cpu_usage": {
+      "type": "string"
+    },
+    "free_memory": {
+      "type": "string"
+    },
+    "hostname": {
+      "type": "string"
+    },
+    "username": {
+      "type": "string"
+    },
+    "os_platform": {
+      "type": "string"
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [
+    {
+      "accessType": "*",
+      "principalType": "ROLE",
+      "principalId": "$unauthenticated",
+      "permission": "DENY"
+    }
+  ],
+  "methods": {}
+}

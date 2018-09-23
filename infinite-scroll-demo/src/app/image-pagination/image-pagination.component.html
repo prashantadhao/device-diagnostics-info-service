@@ -1,0 +1,19 @@
+<div class="container container-fluid">
+  <nav aria-label="Page navigation example" *ngIf="maxPages > 1">
+    <div class="pagination">
+      <div class="btn-space">
+        <img src="assets\left.png" (click)="setPage(current-1 ,itemsPerPage)" />
+      </div>
+      <!-- <li class="page-item" *ngFor="let page of pages;" [class.active]="page == current">
+        <a class="page-link" href="#" (click)="setPage(page, itemsPerPage)">{{ page }}</a>
+      </li> -->
+      <div class="btn-space">
+        <img src="assets\right.png" (click)="setPage(current+1 ,itemsPerPage)" />
+      </div>
+      <div class="btn-space">
+        Current Page : {{current}}
+      </div>
+    </div>
+
+  </nav>
+</div>
