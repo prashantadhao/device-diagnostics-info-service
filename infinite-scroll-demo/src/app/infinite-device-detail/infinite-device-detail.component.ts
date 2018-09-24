@@ -1,5 +1,5 @@
-import { Component, OnInit, Input } from '@angular/core';
-import { DeviceDetailService, Device } from '../device-detail.service';
+import {Component, OnInit} from '@angular/core';
+import {Device, DeviceDetailService} from '../device-detail.service';
 
 @Component({
   selector: 'app-infinite-device-detail',
@@ -8,26 +8,25 @@ import { DeviceDetailService, Device } from '../device-detail.service';
 })
 export class InfiniteDeviceDetailComponent implements OnInit {
   devices: Device[] = [];
-  devicesOriginal: Device[] = [];
-  noOfRecords = 10;
-  itemsPerPage = 100;
+  itemsPerPage = 10;
+  skip = 0;
+
   constructor(private deviceDetailService: DeviceDetailService) {
-    this.loadDeviceDetailsByPage(this.itemsPerPage, 0);
+    this.loadDeviceDetailsByPage(this.itemsPerPage, this.skip);
   }
+
   ngOnInit() {
   }
+
   onScroll() {
-    if (this.devices.length < this.devicesOriginal.length) {
-      const len = this.devices.length;
-      for (let i = len; i <= len + this.noOfRecords; i++) {
-        this.devices.push(this.devicesOriginal[i]);
-      }
-    }
+    this.loadDeviceDetailsByPage(this.itemsPerPage, this.skip);
   }
+
   loadDeviceDetailsByPage(limit: number, skip: number) {
     this.deviceDetailService.getDeviceDetailsList(limit, skip).subscribe(data => {
-      this.devicesOriginal = data;
-      this.devices = this.devicesOriginal.slice(0, this.noOfRecords);
+      const temp = this.devices.concat(data);
+      this.devices = temp;
+      this.skip = this.devices.length;
     }, error => {
       console.log(error);
     });
